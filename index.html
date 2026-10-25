@@ -1,3 +1,5 @@
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +15,7 @@
             --card-border: #182642;
             --accent-blue: #0070f3;
             --accent-light-blue: #00d2ff;
+            --accent-purple: #7928ca;
             --text-main: #e2e8f0;
             --text-muted: #94a3b8;
             --progress-bg: #1e293b;
@@ -54,12 +57,18 @@
             padding: 24px;
             margin-bottom: 20px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(0, 112, 243, 0.4);
         }
 
         /* Profile Sidebar */
         .profile-card {
             text-align: center;
-            height: fit-content;
+            position: sticky;
+            top: 20px;
         }
 
         .avatar-wrapper {
@@ -70,6 +79,7 @@
             padding: 4px;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-light-blue));
             overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
         }
 
         .avatar {
@@ -81,16 +91,18 @@
         }
 
         .profile-card h1 {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             font-weight: 700;
             margin-bottom: 8px;
             color: #fff;
         }
 
         .profile-card .subtitle {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            font-size: 0.85rem;
+            color: var(--accent-light-blue);
             margin-bottom: 20px;
+            line-height: 1.4;
+            font-weight: 500;
         }
 
         .contact-info {
@@ -111,6 +123,7 @@
             color: var(--text-muted);
             text-decoration: none;
             transition: color 0.3s ease;
+            word-break: break-all;
         }
 
         .contact-item a:hover {
@@ -118,7 +131,7 @@
         }
 
         .contact-item i {
-            color: #e63946;
+            color: var(--accent-blue);
             width: 16px;
         }
 
@@ -142,20 +155,22 @@
             font-weight: 600;
             font-size: 0.9rem;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .btn-linkedin {
             border: 1px solid var(--accent-blue);
             color: #fff;
-            background-color: transparent;
+            background-color: rgba(0, 112, 243, 0.1);
         }
 
         .btn-linkedin:hover {
             background-color: var(--accent-blue);
+            box-shadow: 0 0 15px rgba(0, 112, 243, 0.4);
         }
 
         .btn-cv {
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-light-blue));
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
             color: #fff;
             border: none;
         }
@@ -163,6 +178,7 @@
         .btn-cv:hover {
             opacity: 0.9;
             transform: translateY(-1px);
+            box-shadow: 0 0 15px rgba(121, 40, 202, 0.4);
         }
 
         /* Section Headers */
@@ -171,7 +187,7 @@
             align-items: center;
             gap: 10px;
             font-size: 1.2rem;
-            color: var(--accent-blue);
+            color: var(--accent-light-blue);
             margin-bottom: 15px;
             border-bottom: 1px solid var(--card-border);
             padding-bottom: 8px;
@@ -239,13 +255,17 @@
             top: -2px;
         }
 
-        /* Timeline / Item Blocks */
+        /* Item Blocks */
         .item-block {
             margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed rgba(24, 38, 66, 0.8);
         }
 
         .item-block:last-child {
             margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
 
         .item-header {
@@ -256,7 +276,7 @@
 
         .item-sub {
             font-size: 0.85rem;
-            color: var(--accent-blue);
+            color: var(--accent-light-blue);
             margin-bottom: 8px;
         }
 
@@ -266,7 +286,6 @@
             padding: 20px;
             color: var(--text-muted);
             font-size: 0.85rem;
-            position: relative;
         }
 
         .scroll-top {
@@ -275,7 +294,7 @@
             right: 20px;
             background-color: var(--card-bg);
             border: 1px solid var(--card-border);
-            color: var(--accent-blue);
+            color: var(--accent-light-blue);
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -284,6 +303,12 @@
             justify-content: center;
             text-decoration: none;
             box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .scroll-top:hover {
+            background-color: var(--accent-blue);
+            color: #fff;
         }
     </style>
 </head>
@@ -297,7 +322,7 @@
                 <img src="profile.jpg" alt="Khaled Hazem Effat" class="avatar" onerror="if (this.src.endsWith('profile.jpg')) { this.src='profile.png'; } else if (this.src.endsWith('profile.png')) { this.src='profile.jpeg'; }">
             </div>
             <h1>Khaled Hazem Effat</h1>
-            <p class="subtitle">Business Information Systems (BIS) Student • IT Support • Networking</p>
+            <p class="subtitle">Business Information Systems (BIS) Student • IT Support • Networking • Graphic Design</p>
             
             <div class="contact-info">
                 <div class="contact-item">
@@ -321,8 +346,6 @@
                 <a href="https://www.linkedin.com/in/khaledhazemeffat/" target="_blank" class="btn btn-linkedin">
                     <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
                 </a>
-                
-                <!-- فتح الـ CV مباشرة -->
                 <a href="Khaled_Hazem_Effat_CV.pdf" target="_blank" class="btn btn-cv">
                     <i class="fa-solid fa-file-pdf"></i> View CV
                 </a>
@@ -336,7 +359,7 @@
         <div class="card">
             <h2 class="section-title"><i class="fa-solid fa-user"></i> Professional Summary</h2>
             <p style="font-size: 0.95rem; color: var(--text-muted);">
-                Business Information Systems (BIS) student with a strong interest in Information Technology, IT Support, and Networking. Passionate about learning new technologies, solving technical problems, and developing practical IT skills. Currently seeking opportunities to gain hands-on experience and build a successful career in the IT field.
+                Business Information Systems (BIS) student currently studying Cisco CCNA and building practical skills in Networking, Windows Server, Technical Support, and IT Infrastructure. Passionate about IT and Networking, with hands-on experience through practical labs and real-world projects. I am also developing my skills in Graphic Design and Social Media Content Creation. Currently working toward building a strong career in IT and Networking while continuously improving my technical and creative skills.
             </p>
         </div>
 
@@ -346,23 +369,23 @@
             <div class="card">
                 <h2 class="section-title"><i class="fa-solid fa-desktop"></i> Technical Skills</h2>
                 <div class="skill-item">
-                    <div class="skill-info"><span>Microsoft Excel (Intermediate)</span></div>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                    <div class="skill-info"><span>Networking Fundamentals & CCNA</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Graphic Design</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-info"><span>Data Entry Systems</span></div>
                     <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-info"><span>Windows Installation & Troubleshooting</span></div>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
+                    <div class="skill-info"><span>Microsoft Excel (Intermediate)</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
                 </div>
                 <div class="skill-item">
-                    <div class="skill-info"><span>Basic Networking</span></div>
-                    <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-info"><span>Technical Support</span></div>
+                    <div class="skill-info"><span>Windows Installation & Support</span></div>
                     <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
                 </div>
             </div>
@@ -371,13 +394,13 @@
             <div class="card">
                 <h2 class="section-title"><i class="fa-solid fa-users"></i> Soft Skills</h2>
                 <ul class="custom-list">
-                    <li>Teamwork</li>
-                    <li>Communication</li>
+                    <li>Graphic Design</li>
+                    <li>Teamwork & Collaboration</li>
+                    <li>Communication Skills</li>
                     <li>Problem Solving</li>
                     <li>Time Management</li>
                     <li>Attention to Detail</li>
                     <li>Leadership</li>
-                    <li>Ability to Work Under Pressure</li>
                 </ul>
             </div>
         </div>
@@ -389,11 +412,11 @@
                 <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Work Experience</h2>
                 <div class="item-block">
                     <div class="item-header">Data Entry Operations Specialist</div>
-                    <div class="item-sub">Banque Misr (Xerox) | Jul 2025 – Jun 2026</div>
+                    <div class="item-sub">Banque Misr (Xerox Archive Dept.) | Jul 2025 – Jun 2026</div>
                     <ul class="custom-list">
-                        <li>Processed and verified customer data with accuracy.</li>
-                        <li>Trained and supported new team members on daily tasks and operational procedures.</li>
-                        <li>Assisted colleagues in resolving operational issues before escalation to the Team Leader.</li>
+                        <li>Processed and verified customer data with high accuracy.</li>
+                        <li>Trained and supported new team members on daily operational tasks.</li>
+                        <li>Assisted colleagues in resolving issues before escalation to Team Leader.</li>
                         <li>Ensured data quality and compliance with operational standards.</li>
                     </ul>
                 </div>
@@ -401,25 +424,21 @@
 
             <!-- Projects -->
             <div class="card">
-                <h2 class="section-title"><i class="fa-solid fa-folder-open"></i> Projects</h2>
+                <h2 class="section-title"><i class="fa-solid fa-folder-open"></i> Practical Projects</h2>
                 <div class="item-block">
-                    <div class="item-header">1. Techni Project – Information Systems Project</div>
-                    <div class="item-sub">Feb 2025 – Mar 2025</div>
+                    <div class="item-header">1. Basic Network Topology - Cisco Packet Tracer</div>
+                    <div class="item-sub">Aug 2026 – Present</div>
                     <ul class="custom-list">
-                        <li>Participated in the development and assessment of an Information Systems project.</li>
-                        <li>Applied teamwork and analytical skills to complete project requirements.</li>
-                        <li>Achieved an overall project grade of A.</li>
-                        <li>Collaborated with team members to deliver project objectives successfully.</li>
+                        <li>Created network topology with Router, Switch, and PCs.</li>
+                        <li>Configured basic network settings and verified connectivity.</li>
                     </ul>
                 </div>
                 <div class="item-block">
-                    <div class="item-header">2. SWOT Analysis of DHL</div>
-                    <div class="item-sub">Oct 2024 – Dec 2024</div>
+                    <div class="item-header">2. Techni Project – Information Systems</div>
+                    <div class="item-sub">Feb 2025 – Mar 2025</div>
                     <ul class="custom-list">
-                        <li>Conducted a comprehensive SWOT analysis of DHL.</li>
-                        <li>Identified strengths, weaknesses, opportunities, and threats.</li>
-                        <li>Analyzed logistics operations and competitive strategies.</li>
-                        <li>Presented strategic recommendations based on findings.</li>
+                        <li>Participated in developing and assessing an Information Systems project.</li>
+                        <li>Achieved overall project grade of A.</li>
                     </ul>
                 </div>
             </div>
@@ -431,35 +450,24 @@
             <div class="card">
                 <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Training & Internships</h2>
                 <div class="item-block">
-                    <div class="item-header">Banque Misr - Training Program</div>
+                    <div class="item-header">Plastic Pipes & Products Co. (PPP)</div>
+                    <div class="item-sub">IT Basic Network Configuration | Aug 2026</div>
+                </div>
+                <div class="item-block">
+                    <div class="item-header">Banque Misr Training Program</div>
                     <div class="item-sub">Misr & Sudan Branch | Dec 2025 – Jun 2026</div>
-                    <ul class="custom-list">
-                        <li>Interned across Customer Service, Reception, and Corporate Services.</li>
-                        <li>Learned banking fundamentals, types of accounts, and credit basics.</li>
-                        <li>Provided support for ATM transactions and error troubleshooting.</li>
-                    </ul>
                 </div>
                 <div class="item-block">
                     <div class="item-header">Ta'heal - AI Tools</div>
                     <div class="item-sub">Nov 2025 – Dec 2025</div>
-                    <ul class="custom-list">
-                        <li>Learned how to use AI tools to improve productivity and innovation.</li>
-                    </ul>
                 </div>
                 <div class="item-block">
-                    <div class="item-header">MAMIBA Cosmetics - Helpdesk & Network Support</div>
+                    <div class="item-header">MAMIBA Co. - Helpdesk & Network Support</div>
                     <div class="item-sub">Jun 2025 – Jul 2025</div>
-                    <ul class="custom-list">
-                        <li>Provided technical support for printers, computers, and internal systems.</li>
-                        <li>Troubleshot hardware, software, and network issues (routers & switches).</li>
-                    </ul>
                 </div>
                 <div class="item-block">
                     <div class="item-header">SEHA SCAN&LAB - IT Trainee</div>
                     <div class="item-sub">Aug 2024 – Sept 2024</div>
-                    <ul class="custom-list">
-                        <li>Completed practical training in the IT Department assisting with systems support.</li>
-                    </ul>
                 </div>
             </div>
 
@@ -467,23 +475,21 @@
             <div>
                 <!-- Courses & Certifications -->
                 <div class="card">
-                    <h2 class="section-title"><i class="fa-solid fa-certificate"></i> Courses & Certifications</h2>
+                    <h2 class="section-title"><i class="fa-solid fa-certificate"></i> Certifications</h2>
                     <ul class="custom-list">
+                        <li>Networking Fundamentals - Instant (Jul 2026)</li>
                         <li>InnovEgypt - Entrepreneurship (Feb 2026)</li>
-                        <li>Credit Orientation Program – Central Bank of Egypt (Aug 2025)</li>
-                        <li>CIB Bank - Online Training (Jul 2025)</li>
+                        <li>Financial Inclusion - EBSM Banque Misr (Dec 2025)</li>
+                        <li>Credit Orientation - Central Bank of Egypt (Aug 2025)</li>
+                        <li>CIB Bank Online Training (Jul 2025)</li>
                     </ul>
                 </div>
 
-                <!-- Volunteer Experience -->
+                <!-- Education -->
                 <div class="card">
-                    <h2 class="section-title"><i class="fa-solid fa-hands-helping"></i> Volunteer Experience</h2>
-                    <div class="item-header">Member, Future Academy Student Union</div>
-                    <div class="item-sub">Oct 2024 – Dec 2024</div>
-                    <ul class="custom-list">
-                        <li>Organized and supported student activities and events.</li>
-                        <li>Collaborated with team members to achieve student engagement goals.</li>
-                    </ul>
+                    <h2 class="section-title"><i class="fa-solid fa-book"></i> Education</h2>
+                    <div class="item-header">Future Academy</div>
+                    <div class="item-sub">Bachelor of Business Information Systems (BIS) | Expected 2027</div>
                 </div>
 
                 <!-- Languages -->
@@ -493,13 +499,6 @@
                         <li>Arabic: Native</li>
                         <li>English: Intermediate</li>
                     </ul>
-                </div>
-
-                <!-- Education -->
-                <div class="card">
-                    <h2 class="section-title"><i class="fa-solid fa-book"></i> Education</h2>
-                    <div class="item-header">Future Academy</div>
-                    <div class="item-sub">Bachelor of Business Information Systems (BIS) | Sep 2023 – July 2027</div>
                 </div>
             </div>
         </div>
@@ -513,3 +512,5 @@
 
 </body>
 </html>
+
+```
